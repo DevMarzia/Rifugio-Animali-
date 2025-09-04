@@ -1,5 +1,9 @@
-package com.rifugio;
-//  factory pattern
+package com.rifugio.factory;
+
+import com.rifugio.model.Animal;
+import com.rifugio.model.Cat;
+import com.rifugio.model.Dog;
+
 public class ConcreteAnimalFactory implements AnimalFactory {
     @Override
     public Animal createAnimal(String type, String name, int age) {

@@ -1,4 +1,4 @@
-package com.rifugio;
+package com.rifugio.exception;
 //  classe eccezioni personalizzate
 
 public class ShelterException extends RuntimeException {
