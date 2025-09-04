@@ -1,0 +1,10 @@
+com\rifugio\service\ShelterManager.class
+com\rifugio\model\Dog.class
+com\rifugio\App.class
+com\rifugio\exception\ShelterException.class
+com\rifugio\model\Animal.class
+com\rifugio\factory\ConcreteAnimalFactory.class
+com\rifugio\composite\Department.class
+com\rifugio\composite\ShelterComponent.class
+com\rifugio\model\Cat.class
+com\rifugio\factory\AnimalFactory.class

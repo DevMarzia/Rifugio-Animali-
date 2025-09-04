@@ -1,0 +1,96 @@
+# Created at 2025-09-04T18:46:58.313
+[SUREFIRE] std/in stream corrupted
+java.io.IOException: Command NOOP unexpectedly read Void data with length 4.
+	at org.apache.maven.surefire.booter.MasterProcessCommand.decode(MasterProcessCommand.java:130)
+	at org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:391)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+
+# Created at 2025-09-04T18:47:32.826
+Unexpected IOException with stream: 18:47:32.825 [main] WARN com.rifugio.App -- Invalid input received in menu selection.
+
+
+# Created at 2025-09-04T18:47:32.838
+Unexpected IOException with stream: Errore: Inserire un numero valido per la scelta.
+
+
+# Created at 2025-09-04T18:47:32.839
+Unexpected IOException with stream: 
+--- Menu Rifugio Animali ---
+
+
+# Created at 2025-09-04T18:47:32.841
+Unexpected IOException with stream: 1. Aggiungi un nuovo animale
+
+
+# Created at 2025-09-04T18:47:32.842
+Unexpected IOException with stream: 2. Mostra la lista di tutti gli animali
+
+
+# Created at 2025-09-04T18:47:32.843
+Unexpected IOException with stream: 3. Mostra la struttura a reparti del rifugio
+
+
+# Created at 2025-09-04T18:47:32.844
+Unexpected IOException with stream: 4. Salva ed esci
+
+
+# Created at 2025-09-04T18:47:32.845
+Unexpected IOException with stream: Scegli un'opzione: 
+
+# Created at 2025-09-04T18:47:32.859
+Unexpected IOException: 8,1,com.rifugio.AppTest,mainMethodShouldRunWithoutException,null,Unexpected exception thrown: java.util.NoSuchElementException,null,Unexpected exception thrown: java.util.NoSuchElementException,AppTest.mainMethodShouldRunWithoutException:9 Unexpected exception thrown: java.util.NoSuchElementException,org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.util.NoSuchElementException\000A\0009at com.rifugio.AppTest.mainMethodShouldRunWithoutException(AppTest.java:9)\000ACaused by: java.util.NoSuchElementException\000A\0009at com.rifugio.AppTest.lambda$mainMethodShouldRunWithoutException$0(AppTest.java:9)\000A\0009at com.rifugio.AppTest.mainMethodShouldRunWithoutException(AppTest.java:9)\000A
+
+
+# Created at 2025-09-04T18:47:32.861
+Unexpected IOException: 2,1,org.apache.maven.surefire.junitplatform.JUnitPlatformProvider,com.rifugio.AppTest,null,null,null
+
+
+# Created at 2025-09-04T18:47:32.865
+Unexpected IOException: 1,1,org.apache.maven.surefire.junitplatform.JUnitPlatformProvider,com.rifugio.ShelterTest,null,null,null
+
+
+# Created at 2025-09-04T18:47:32.874
+Unexpected IOException: 5,1,com.rifugio.ShelterTest,testLoadAnimalsFromEmptyFile,null,null,null
+
+
+# Created at 2025-09-04T18:47:32.974
+Unexpected IOException with stream: 18:47:32.973 [main] INFO com.rifugio.service.ShelterManager -- Animal file C:\Users\marzi\AppData\Local\Temp\junit18155851777779213805\test_animals.json is empty, returning empty list.
+
+
+# Created at 2025-09-04T18:47:32.983
+Unexpected IOException: 6,1,com.rifugio.ShelterTest,testLoadAnimalsFromEmptyFile,null,null,null
+
+
+# Created at 2025-09-04T18:47:32.984
+Unexpected IOException: 5,1,com.rifugio.ShelterTest,testSaveAndLoadAnimals,null,null,null
+
+
+# Created at 2025-09-04T18:47:32.991
+Unexpected IOException with stream: 18:47:32.990 [main] INFO com.rifugio.service.ShelterManager -- Successfully saved 2 animals to C:\Users\marzi\AppData\Local\Temp\junit12046268038974231931\test_animals.json.
+
+
+# Created at 2025-09-04T18:47:32.994
+Unexpected IOException with stream: 18:47:32.992 [main] INFO com.rifugio.service.ShelterManager -- Successfully loaded 2 animals from C:\Users\marzi\AppData\Local\Temp\junit12046268038974231931\test_animals.json.
+
+
+# Created at 2025-09-04T18:47:32.998
+Unexpected IOException: 6,1,com.rifugio.ShelterTest,testSaveAndLoadAnimals,null,null,null
+
+
+# Created at 2025-09-04T18:47:33.000
+Unexpected IOException: 5,1,com.rifugio.ShelterTest,testLoadAnimalsWithCorruptedFile,null,null,null
+
+
+# Created at 2025-09-04T18:47:33.005
+Unexpected IOException with stream: 18:47:33.004 [main] ERROR com.rifugio.service.ShelterManager -- Failed to load animals from file C:\Users\marzi\AppData\Local\Temp\junit546340883196963457\test_animals.json: A JSONArray text must start with '[' at 1 [character 2 line 1]
+
+
+# Created at 2025-09-04T18:47:33.009
+Unexpected IOException: 6,1,com.rifugio.ShelterTest,testLoadAnimalsWithCorruptedFile,null,null,null
+
+
+# Created at 2025-09-04T18:47:33.009
+Unexpected IOException: 2,1,org.apache.maven.surefire.junitplatform.JUnitPlatformProvider,com.rifugio.ShelterTest,null,null,null
+
+
