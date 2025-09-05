@@ -34,7 +34,7 @@ public class ShelterTest {
     @Test
     void testSaveAndLoadAnimals() {
         List<Animal> originalAnimals = new ArrayList<>();
-        // Questo è il punto corretto, con i costruttori a 3 parametri
+        
         originalAnimals.add(new Dog("Buddy", 3, "m"));
         originalAnimals.add(new Cat("Luna", 2, "f"));
 

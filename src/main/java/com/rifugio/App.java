@@ -143,6 +143,5 @@ public class App {
         mainShelter.displayDetails();
     }
 }
-// mvn clean package
 
-// java -jar target/RifugioAnimali-1.0-SNAPSHOT-jar-with-dependencies.jar
+
