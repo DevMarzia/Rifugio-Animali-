@@ -24,7 +24,7 @@ Questo progetto utilizza una serie di tecnologie e design pattern per soddisfare
 * **Iterator Pattern**: Implementato nella classe `Department` facendola ereditare da `Iterable<ShelterComponent>`. Questo pattern fornisce un modo standard per **accedere sequenzialmente agli elementi di una collezione complessa** (lista di componenti) senza esporne la rappresentazione interna. Permette l'uso del ciclo for-each, rendendo il codice più leggibile e pulito.
 * **Exception Shielding**: Implementato nel metodo `loadAnimals()` della classe `ShelterManager`. Le eccezioni di basso livello e specifiche (es. `IOException`, `JSONException`) vengono catturate, loggate internamente, e viene lanciata una nuova eccezione più generica e sicura (`ShelterException`). Questo **impedisce che dettagli sensibili sull'implementazione (es. struttura del file system, librerie usate) vengano esposti al client** in caso di errore, rispettando il principio di programmazione sicura.
 
-### Tecnologie Fondamentali (`α`)
+### Tecnologie Fondamentali
 
 * **Java 11**: Il progetto è basato su Java 11.
 * **Maven**: Utilizzato come build tool per la gestione delle dipendenze (JUnit, SLF4J, JSON), la compilazione del progetto e la creazione di un JAR eseguibile.
