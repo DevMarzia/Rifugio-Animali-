@@ -21,7 +21,7 @@ public class App {
     private static List<Animal> animals;
 
     public static void main(String[] args) {
-        logger.info("Starting the animal shelter management application.");
+        logger.info("Avvio dell'applicazione: Gestione Rifugio Animali");
         animals = shelterManager.loadAnimals(); // Carica i dati all'avvio
 
         Scanner scanner = new Scanner(System.in);
@@ -46,7 +46,7 @@ public class App {
                     case 4:
                         shelterManager.saveAnimals(animals);
                         running = false;
-                        logger.info("Data saved. Shutting down.");
+                        logger.info("Dati salvati. Chiusura dell'applicazione.");
                         System.out.println("Dati salvati. Arrivederci!");
                         break;
                     default:
@@ -54,7 +54,7 @@ public class App {
                 }
             } catch (InputMismatchException e) {
                 // Gestisce l'input non numerico per prevenire il crash
-                logger.warn("Invalid input received in menu selection.");
+                logger.warn("Input non valido nella selezione del menu");
                 System.err.println("Errore: Inserire un numero valido per la scelta.");
                 scanner.nextLine(); // Pulisce lo scanner dall'input errato
             }
@@ -72,19 +72,27 @@ public class App {
     }
 
     private static void addNewAnimal(Scanner scanner) {
-        System.out.print("Che tipo di animale? (dog/cat): ");
+        System.out.print("Che tipo di animale? (cane/gatto): ");
         String type = scanner.nextLine().toLowerCase().trim();
 
         // --- REQUISITO: INPUT SANITIZATION ---
         // Controlliamo che il tipo sia uno di quelli permessi (whitelisting)
-        if (!type.equals("dog") && !type.equals("cat")) {
+        if (!type.equals("cane") && !type.equals("gatto")) {
             logger.warn("Invalid animal type entered: {}", type);
-            System.err.println("Tipo non valido. Inserire 'dog' o 'cat'.");
+            System.err.println("Tipo non valido. Inserire 'cane' o 'gatto'.");
             return; // Torna al menu
         }
 
         System.out.print("Nome: ");
         String name = scanner.nextLine();
+
+        System.out.print("Sesso? (m/f): ");
+        String sex = scanner.nextLine().toLowerCase().trim();
+        if (!sex.equals("m") && !sex.equals("f")) {
+            logger.warn("Invalid sex entered: {}", sex);
+            System.err.println("Sesso non valido. Inserire 'm' o 'f'.");
+            return;
+        }
         
         int age = -1;
         while (age < 0) {
@@ -101,9 +109,9 @@ public class App {
         }
         scanner.nextLine(); // Consuma il newline
 
-        Animal newAnimal = factory.createAnimal(type, name, age);
+        Animal newAnimal = factory.createAnimal(type, name, age, sex);
         animals.add(newAnimal);
-        logger.info("New animal added: {} - {}", type, name);
+        logger.info("New animal added: {} - {}", type, name, sex);
         System.out.println(name + " è stato aggiunto al rifugio!");
     }
 
@@ -137,3 +145,7 @@ public class App {
         mainShelter.displayDetails();
     }
 }
+
+// mvn clean package
+
+// java -jar target/RifugioAnimali-1.0-SNAPSHOT-jar-with-dependencies.jar

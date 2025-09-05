@@ -62,7 +62,8 @@ public class ShelterManager {
                 String type = obj.getString("type");
                 String name = obj.getString("name");
                 int age = obj.getInt("age");
-                animals.add(factory.createAnimal(type, name, age));
+                String sex = obj.getString("sex");
+                animals.add(factory.createAnimal(type, name, age, sex));
             }
             logger.info("Successfully loaded {} animals from {}.", animals.size(), filePath);
             return animals;

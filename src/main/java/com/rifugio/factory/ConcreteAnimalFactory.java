@@ -6,12 +6,12 @@ import com.rifugio.model.Dog;
 
 public class ConcreteAnimalFactory implements AnimalFactory {
     @Override
-    public Animal createAnimal(String type, String name, int age) {
+    public Animal createAnimal(String type, String name, int age, String sex) {
         switch (type.toLowerCase()) {
-            case "dog":
-                return new Dog(name, age);
-            case "cat":
-                return new Cat(name, age);
+            case "cane":
+                return new Dog(name, age, sex);
+            case "gatto":
+                return new Cat(name, age, sex);
             default:
                 throw new IllegalArgumentException("Unknown animal type: " + type);
         }
