@@ -34,23 +34,21 @@ public class ShelterTest {
     @Test
     void testSaveAndLoadAnimals() {
         List<Animal> originalAnimals = new ArrayList<>();
-        // CORREZIONE DEFINITIVA: Usiamo i nuovi costruttori che includono il sesso
+        // Questo è il punto corretto, con i costruttori a 3 parametri
         originalAnimals.add(new Dog("Buddy", 3, "m"));
         originalAnimals.add(new Cat("Luna", 2, "f"));
-        
+
         shelterManager.saveAnimals(originalAnimals);
-        
+
         List<Animal> loadedAnimals = shelterManager.loadAnimals();
-        
+
         assertNotNull(loadedAnimals);
         assertEquals(2, loadedAnimals.size());
-        
-        // Controlla il primo animale
+
         assertEquals("Buddy", loadedAnimals.get(0).getName());
         assertEquals(3, loadedAnimals.get(0).getAge());
         assertEquals("m", loadedAnimals.get(0).getSex());
 
-        // Controlla il secondo animale
         assertEquals("Luna", loadedAnimals.get(1).getName());
         assertEquals(2, loadedAnimals.get(1).getAge());
         assertEquals("f", loadedAnimals.get(1).getSex());
@@ -72,7 +70,7 @@ public class ShelterTest {
         } catch (IOException e) {
             fail("Salvataggio dati corrotti per il test fallito.");
         }
-        
+
         assertThrows(ShelterException.class, () -> {
             shelterManager.loadAnimals();
         });
