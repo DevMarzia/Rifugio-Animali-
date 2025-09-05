@@ -39,6 +39,7 @@ Questo progetto utilizza una serie di tecnologie e design pattern per soddisfare
 
 ### Prerequisiti
 * Java Development Kit (JDK) 11 o superiore.
+  > Assicurarsi che la variabile d'ambiente `JAVA_HOME` sia impostata correttamente.
 * Apache Maven.
 
 ### Compilazione ed Esecuzione
