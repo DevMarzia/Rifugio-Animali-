@@ -21,8 +21,8 @@ class AnimalFactoryTest {
 
     @Test
     void testAnimalFactoryCreatesCorrectType() {
-        Animal dog = factory.createAnimal("dog", "Fido", 5);
-        Animal cat = factory.createAnimal("cat", "Milo", 4);
+        Animal dog = factory.createAnimal("cane", "Fido", 5, "m");
+        Animal cat = factory.createAnimal("gatto", "Milo", 4, "f");
 
         assertInstanceOf(Dog.class, dog);
         assertInstanceOf(Cat.class, cat);
@@ -30,15 +30,16 @@ class AnimalFactoryTest {
 
     @Test
     void testAnimalFactorySetsDataCorrectly() {
-        Animal dog = factory.createAnimal("dog", "Fido", 5);
+        Animal dog = factory.createAnimal("cane", "Fido", 5, "m");
         assertEquals("Fido", dog.getName());
         assertEquals(5, dog.getAge());
+        assertEquals("m", dog.getSex());
     }
 
     @Test
     void testAnimalFactoryThrowsExceptionForInvalidType() {
         assertThrows(IllegalArgumentException.class, () -> {
-            factory.createAnimal("bird", "Tweetie", 1);
+            factory.createAnimal("coniglio", "Tweetie", 1, "m");
         });
     }
 }

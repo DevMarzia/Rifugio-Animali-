@@ -9,7 +9,7 @@ public abstract class Animal implements ShelterComponent {
     protected String type;
     
 
-    public Animal(String name, int age, String type) {
+    public Animal(String name, int age, String sex,  String type) {
         this.name = name;
         this.age = age;
         this.sex = sex;

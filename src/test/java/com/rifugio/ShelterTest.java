@@ -34,8 +34,8 @@ public class ShelterTest {
     @Test
     void testSaveAndLoadAnimals() {
         List<Animal> originalAnimals = new ArrayList<>();
-        originalAnimals.add(new Dog("Buddy", 3));
-        originalAnimals.add(new Cat("Luna", 2));
+        originalAnimals.add(new Dog("Buddy", 3, "m"));
+        originalAnimals.add(new Cat("Luna", 2, "f"));
         
         shelterManager.saveAnimals(originalAnimals);
         
@@ -43,10 +43,14 @@ public class ShelterTest {
         
         assertNotNull(loadedAnimals);
         assertEquals(2, loadedAnimals.size());
+
         assertEquals("Buddy", loadedAnimals.get(0).getName());
         assertEquals(3, loadedAnimals.get(0).getAge());
+        assertEquals("m", loadedAnimals.get(0).getSex());
+
         assertEquals("Luna", loadedAnimals.get(1).getName());
         assertEquals(2, loadedAnimals.get(1).getAge());
+        assertEquals("f", loadedAnimals.get(1).getSex());
     }
 
     @Test
