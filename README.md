@@ -64,9 +64,8 @@ classDiagram
     direction LR
 
     interface ShelterComponent {
-        <<Interface>>
-        +displayDetails() void
-    }
+    +displayDetails() void
+}
 
     class Department {
         -name: String
@@ -101,12 +100,11 @@ classDiagram
     Animal <|-- Cat
 
     interface AnimalFactory {
-        <<Interface>>
-        +createAnimal(type: String, name: String, age: int): Animal
+        +createAnimal(type: String, name: String, age: int, sex: String): Animal
     }
 
     class ConcreteAnimalFactory {
-        +createAnimal(type: String, name: String, age: int): Animal
+        +createAnimal(type: String, name: String, age: int, sex: String): Animal
     }
     AnimalFactory <|.. ConcreteAnimalFactory
     ConcreteAnimalFactory ..> Dog : creates
