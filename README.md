@@ -63,37 +63,39 @@ Questo progetto utilizza una serie di tecnologie e design pattern per soddisfare
 classDiagram
     direction LR
 
-    interface ShelterComponent {
-        +displayDetails() void
+    class ShelterComponent {
+        <<interface>>
+        displayDetails()
     }
 
     class Department {
-        -name: String
-        -components: List~ShelterComponent~
-        +addComponent(component: ShelterComponent) void
-        +displayDetails() void
-        +iterator(): Iterator~ShelterComponent~
+        - name : String
+        - components : List
+        + addComponent(component)
+        + displayDetails()
+        + iterator()
     }
     Department "1" --o "*" ShelterComponent : contains
 
     class Animal {
-        <<Abstract>>
-        #name: String
-        #age: int
-        #sex: String
-        #type: String
-        +getName(): String
-        +getAge(): int
-        +getSex(): String
-        +getType(): String
-        +displayDetails() void
+        <<abstract>>
+        # name : String
+        # age : int
+        # sex : String
+        # type : String
+        + getName()
+        + getAge()
+        + getSex()
+        + getType()
+        + displayDetails()
     }
 
     class Dog {
-        +displayDetails() void
+        + displayDetails()
     }
+
     class Cat {
-        +displayDetails() void
+        + displayDetails()
     }
 
     ShelterComponent <|.. Department
@@ -101,32 +103,33 @@ classDiagram
     Animal <|-- Dog
     Animal <|-- Cat
 
-    interface AnimalFactory {
-        +createAnimal(type: String, name: String, age: int, sex: String): Animal
+    class AnimalFactory {
+        <<interface>>
+        + createAnimal(type, name, age, sex)
     }
 
     class ConcreteAnimalFactory {
-        +createAnimal(type: String, name: String, age: int, sex: String): Animal
+        + createAnimal(type, name, age, sex)
     }
     AnimalFactory <|.. ConcreteAnimalFactory
     ConcreteAnimalFactory ..> Dog : creates
     ConcreteAnimalFactory ..> Cat : creates
 
     class ShelterManager {
-        -filePath: String
-        +saveAnimals(animals: List~Animal~) void
-        +loadAnimals(): List~Animal~
+        - filePath : String
+        + saveAnimals(animals)
+        + loadAnimals()
     }
     ShelterManager ..> AnimalFactory : uses
     ShelterManager ..> ShelterException : throws
 
     class ShelterException {
-        +ShelterException(message: String, cause: Throwable)
+        + ShelterException(message, cause)
     }
     RuntimeException <|-- ShelterException
 
     class App {
-        {static} +main(args: String[]) void
+        + main(args)
     }
     App ..> ShelterManager : uses
     App ..> AnimalFactory : uses
