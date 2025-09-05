@@ -34,6 +34,7 @@ public class ShelterTest {
     @Test
     void testSaveAndLoadAnimals() {
         List<Animal> originalAnimals = new ArrayList<>();
+        // CORREZIONE DEFINITIVA: Usiamo i nuovi costruttori che includono il sesso
         originalAnimals.add(new Dog("Buddy", 3, "m"));
         originalAnimals.add(new Cat("Luna", 2, "f"));
         
@@ -43,11 +44,13 @@ public class ShelterTest {
         
         assertNotNull(loadedAnimals);
         assertEquals(2, loadedAnimals.size());
-
+        
+        // Controlla il primo animale
         assertEquals("Buddy", loadedAnimals.get(0).getName());
         assertEquals(3, loadedAnimals.get(0).getAge());
         assertEquals("m", loadedAnimals.get(0).getSex());
 
+        // Controlla il secondo animale
         assertEquals("Luna", loadedAnimals.get(1).getName());
         assertEquals(2, loadedAnimals.get(1).getAge());
         assertEquals("f", loadedAnimals.get(1).getSex());
@@ -67,10 +70,9 @@ public class ShelterTest {
         try {
             Files.write(corruptedFile.toPath(), "dati non validi".getBytes());
         } catch (IOException e) {
-            fail("Failed to write corrupted data for test setup.");
+            fail("Salvataggio dati corrotti per il test fallito.");
         }
         
-        // Test for Exception Shielding
         assertThrows(ShelterException.class, () -> {
             shelterManager.loadAnimals();
         });

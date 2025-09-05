@@ -13,7 +13,7 @@ public class ConcreteAnimalFactory implements AnimalFactory {
             case "gatto":
                 return new Cat(name, age, sex);
             default:
-                throw new IllegalArgumentException("Unknown animal type: " + type);
+                throw new IllegalArgumentException("Animale non presente nel rifugio: " + type);
         }
     }
 }
