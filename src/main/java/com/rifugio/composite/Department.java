@@ -18,7 +18,7 @@ public class Department implements ShelterComponent, Iterable<ShelterComponent> 
 
     @Override
     public void displayDetails() {
-        System.out.println("Department: " + name);
+        System.out.println("Reaprto: " + name);
         for (ShelterComponent component : this) {
             component.displayDetails();
         }

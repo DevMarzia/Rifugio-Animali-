@@ -1,17 +1,20 @@
 [
     {
+        "sex": "m",
         "name": "Buddy",
-        "type": "dog",
+        "type": "cane",
         "age": 3
     },
     {
+        "sex": "f",
         "name": "Luna",
-        "type": "cat",
+        "type": "gatto",
         "age": 2
     },
     {
-        "name": "Max",
-        "type": "dog",
-        "age": 5
+        "sex": "m",
+        "name": "max",
+        "type": "cane",
+        "age": 3
     }
 ]

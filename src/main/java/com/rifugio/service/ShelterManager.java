@@ -30,14 +30,15 @@ public class ShelterManager {
             jsonObject.put("type", animal.getType());
             jsonObject.put("name", animal.getName());
             jsonObject.put("age", animal.getAge());
+            jsonObject.put("sex", animal.getSex());
             jsonArray.put(jsonObject);
         }
         try {
             Files.write(Paths.get(filePath), jsonArray.toString(4).getBytes());
-            logger.info("Successfully saved {} animals to {}.", animals.size(), filePath);
+            logger.info("Salvati con successo {} animali su {}.", animals.size(), filePath);
         } catch (IOException e) {
-            logger.error("Failed to save animals to file: {}", filePath, e);
-            throw new ShelterException("Error while saving animal data.", e);
+            logger.error("Salvataggio animali fallito su file: {}", filePath, e);
+            throw new ShelterException("Errore durante il salvataggio dei dati degli animali.", e);
         }
     }
 
@@ -45,12 +46,12 @@ public class ShelterManager {
         List<Animal> animals = new ArrayList<>();
         try {
             if (!Files.exists(Paths.get(filePath))) {
-                logger.warn("Animal file {} not found, returning empty list.", filePath);
+                logger.warn("File degli animali {} non trovato, lista vuota restituita.", filePath);
                 return animals;
             }
             String content = new String(Files.readAllBytes(Paths.get(filePath)));
             if (content.isEmpty()) {
-                logger.info("Animal file {} is empty, returning empty list.", filePath);
+                logger.info("File degli animali {} vuoto, lista vuota restituita.", filePath);
                 return animals;
             }
 
@@ -65,12 +66,12 @@ public class ShelterManager {
                 String sex = obj.getString("sex");
                 animals.add(factory.createAnimal(type, name, age, sex));
             }
-            logger.info("Successfully loaded {} animals from {}.", animals.size(), filePath);
+            logger.info("Caricati con successo {} animali da {}.", animals.size(), filePath);
             return animals;
         } catch (IOException | JSONException e) {
             // EXCEPTION SHIELDING PATTERN
-            logger.error("Failed to load animals from file {}: {}", filePath, e.getMessage());
-            throw new ShelterException("Could not load animal data. The file might be corrupted.", e);
+            logger.error("Caricamento animali fallito da file {}: {}", filePath, e.getMessage());
+            throw new ShelterException("Impossibile caricare i dati degli animali. Il file potrebbe essere corrotto.", e);
         }
     }
 }
