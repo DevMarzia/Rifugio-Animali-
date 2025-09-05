@@ -1,8 +1,8 @@
-# Progetto Finale OOP: Gestione Rifugio Animali
+# Progetto OOP: Gestione Rifugio Animali
 
 ## 1. Panoramica dell'Applicazione
 
-Questo progetto è un'applicazione Java SE per la gestione di un rifugio di animali. È un'applicazione a riga di comando che dimostra l'uso di principi di programmazione orientata agli oggetti, design pattern e tecnologie fondamentali di Java.
+Questo progetto è un'applicazione Java SE per la gestione di un rifugio di animali. È un'applicazione a riga di comando che dimostra l'uso dei principi di programmazione orientata agli oggetti, design pattern e tecnologie fondamentali di Java.
 
 Le funzionalità principali includono:
 * Creazione di diversi tipi di animali (cani e gatti) tramite una factory.
@@ -13,25 +13,25 @@ Le funzionalità principali includono:
 
 ---
 
-## 2. Tecnologie e Pattern Utilizzati (con Giustificazione)
+## 2. Tecnologie e Pattern Utilizzati
 
-[cite_start]Questo progetto utilizza una serie di tecnologie e design pattern per soddisfare i requisiti di manutenibilità, sicurezza e robustezza, come richiesto dalle specifiche[cite: 1686].
+Questo progetto utilizza una serie di tecnologie e design pattern per soddisfare i requisiti della richiesta d'esame.
 
-### Design Pattern Obbligatori (`α`)
+### Design Pattern 
 
-* **Factory Pattern**: Utilizzato per la creazione degli oggetti `Animal`. [cite_start]La `AnimalFactory` definisce un'interfaccia per creare animali, mentre `ConcreteAnimalFactory` fornisce l'implementazione concreta[cite: 783]. Questa scelta è stata fatta per **disaccoppiare la logica di creazione degli oggetti dal client** (`App.java`). In questo modo, il client non ha bisogno di conoscere i dettagli costruttivi di `Dog` o `Cat`, e diventa facile aggiungere nuovi tipi di animali in futuro senza modificare il client.
-* **Composite Pattern**: Utilizzato per creare una struttura gerarchica (ad albero) del rifugio. [cite_start]L'interfaccia `ShelterComponent` rappresenta sia gli oggetti foglia (`Animal`) sia i contenitori (`Department`)[cite: 1244]. Questo pattern permette di **trattare un singolo animale e un intero reparto in modo uniforme**, semplificando operazioni come la visualizzazione dei dettagli dell'intera struttura del rifugio con una singola chiamata ricorsiva.
-* **Iterator Pattern**: Implementato nella classe `Department` facendola ereditare da `Iterable<ShelterComponent>`. [cite_start]Questo pattern fornisce un modo standard per **accedere sequenzialmente agli elementi di una collezione complessa** (la lista di componenti) senza esporne la rappresentazione interna[cite: 88, 1381]. Permette l'uso del ciclo for-each, rendendo il codice più leggibile e pulito.
-* **Exception Shielding**: Implementato nel metodo `loadAnimals()` della classe `ShelterManager`. [cite_start]Le eccezioni di basso livello e specifiche (es. `IOException`, `JSONException`) vengono catturate, loggate internamente, e viene lanciata una nuova eccezione più generica e sicura (`ShelterException`)[cite: 1275]. [cite_start]Questo **impedisce che dettagli sensibili sull'implementazione (es. struttura del file system, librerie usate) vengano esposti al client** in caso di errore, rispettando il principio di programmazione sicura "Controlled Exception Propagation"[cite: 1695].
+* **Factory Pattern**: Utilizzato per la creazione degli oggetti `Animal`. La `AnimalFactory` definisce un'interfaccia per creare animali, mentre `ConcreteAnimalFactory` fornisce l'implementazione concreta. Questa scelta è stata fatta per **separare la logica di creazione degli oggetti dal client** (`App.java`). In questo modo, il client non ha bisogno di conoscere i dettagli costruttivi di `Dog` o `Cat`, e diventa facile aggiungere nuovi tipi di animali in futuro senza modificare il client.
+* **Composite Pattern**: Utilizzato per creare una struttura gerarchica (ad albero) del rifugio. L'interfaccia ShelterComponent rappresenta sia gli elementi singoli (Animal) sia i contenitori (Department). Questo pattern permette di trattare un singolo animale e un intero reparto in modo uniforme, semplificando operazioni come la visualizzazione dei dettagli dell'intera struttura del rifugio con una singola chiamata ricorsiva.
+* **Iterator Pattern**: Implementato nella classe `Department` facendola ereditare da `Iterable<ShelterComponent>`. Questo pattern fornisce un modo standard per **accedere sequenzialmente agli elementi di una collezione complessa** (lista di componenti) senza esporne la rappresentazione interna. Permette l'uso del ciclo for-each, rendendo il codice più leggibile e pulito.
+* **Exception Shielding**: Implementato nel metodo `loadAnimals()` della classe `ShelterManager`. Le eccezioni di basso livello e specifiche (es. `IOException`, `JSONException`) vengono catturate, loggate internamente, e viene lanciata una nuova eccezione più generica e sicura (`ShelterException`). Questo **impedisce che dettagli sensibili sull'implementazione (es. struttura del file system, librerie usate) vengano esposti al client** in caso di errore, rispettando il principio di programmazione sicura.
 
 ### Tecnologie Fondamentali (`α`)
 
-* [cite_start]**Java 11**: Il progetto è basato su Java 11, una versione LTS (Long-Term Support) stabile e moderna, che include migliorie significative al linguaggio[cite: 192].
+* **Java 11**: Il progetto è basato su Java 11.
 * **Maven**: Utilizzato come build tool per la gestione delle dipendenze (JUnit, SLF4J, JSON), la compilazione del progetto e la creazione di un JAR eseguibile.
-* [cite_start]**Collections & Generics**: `List<Animal>` e `List<ShelterComponent>` sono usate per gestire le collezioni di oggetti in modo sicuro (type-safe) e flessibile[cite: 1338, 1665].
-* **Java I/O (NIO)**: `ShelterManager` utilizza il package `java.nio.file` per leggere e scrivere il file JSON. [cite_start]Questa API moderna è più performante e robusta rispetto al vecchio `java.io`[cite: 1535].
-* [cite_start]**Logging (SLF4J & Logback)**: È stato implementato un sistema di logging professionale per tracciare gli eventi dell'applicazione, come l'avvio, il salvataggio dei dati e gli errori, come richiesto dalle specifiche[cite: 1693].
-* [cite_start]**JUnit 5**: Il progetto include una suite di test unitari per validare la logica delle classi `AnimalFactory` e `ShelterManager`, garantendo l'affidabilità del codice[cite: 907].
+* **Collections & Generics**: `List<Animal>` e `List<ShelterComponent>` sono usate per gestire le collezioni di oggetti in modo sicuro e flessibile.
+* **Java I/O (NIO)**: `ShelterManager` utilizza il package `java.nio.file` per leggere e scrivere il file JSON. Questa API moderna è più performante e robusta rispetto al vecchio `java.io`.
+* **Logging (SLF4J & Logback)**: È stato implementato un sistema di logging professionale per tracciare gli eventi dell'applicazione, come l'avvio, il salvataggio dei dati e gli errori, come richiesto dalla traccia d'esame.
+* **JUnit 5**: Il progetto include una suite di test unitari per validare la logica delle classi `AnimalFactory` e `ShelterManager`, garantendo l'affidabilità del codice.
 
 ---
 
@@ -140,10 +140,9 @@ classDiagram
 ### Limitazioni Attuali
 * L'applicazione non ha un'interfaccia utente interattiva (CLI), ma esegue solo uno script predefinito.
 * La persistenza dei dati è limitata a un singolo file JSON locale. Non c'è un database.
-* La gestione degli errori è basilare e si affida al pattern Exception Shielding, ma potrebbe essere più granulare.
+* La gestione degli errori è basilare e si affida al pattern Exception Shielding.
 
 ### Miglioramenti Futuri
 * **Implementare il Builder Pattern**: Per la creazione di oggetti `Animal` con più attributi opzionali (es. colore, razza, stato di salute), il Builder Pattern renderebbe il codice più leggibile e scalabile.
-* **Usare Stream API & Lambda**: Riscrivere i cicli di elaborazione delle liste di animali (es. filtraggio per tipo) usando l'API Stream di Java 8 per un codice più moderno e dichiarativo.
 * **Sviluppare un'Interfaccia a Riga di Comando (CLI)**: Aggiungere la possibilità per l'utente di interagire con l'applicazione per aggiungere, rimuovere o visualizzare animali.
-* **Integrare un Database**: Sostituire la persistenza su file JSON con un database (es. SQLite o H2) per una gestione dei dati più robusta.
+* **Integrare un Database**: Sostituire la persistenza su file JSON con un database (es. SQLite) per una gestione dei dati più robusta.
