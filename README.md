@@ -64,8 +64,8 @@ classDiagram
     direction LR
 
     interface ShelterComponent {
-    +displayDetails() void
-}
+        +displayDetails() void
+    }
 
     class Department {
         -name: String
@@ -80,9 +80,11 @@ classDiagram
         <<Abstract>>
         #name: String
         #age: int
+        #sex: String
         #type: String
         +getName(): String
         +getAge(): int
+        +getSex(): String
         +getType(): String
         +displayDetails() void
     }
